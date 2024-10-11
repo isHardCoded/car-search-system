@@ -26,6 +26,7 @@ const List = () => {
       <button onClick={() => handleShow()}>
         {show ? "Hide cars" : "Show cars"}
       </button>
+      <p>{show ? "" : "Click button before search cars"}</p>
       {show && (
         <ul className="car-list">
           {filteredCars.map((item) => (

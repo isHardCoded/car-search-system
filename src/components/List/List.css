@@ -29,3 +29,8 @@ button:hover {
   border: 1px rgb(165, 165, 165) solid;
   transition: 0.3s ease;
 }
+
+p {
+  font-size: 12px;
+  margin-top: 15px;
+}
