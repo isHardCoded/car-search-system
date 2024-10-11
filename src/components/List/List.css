@@ -13,3 +13,19 @@
   justify-content: center;
   align-items: center;
 }
+
+button {
+  margin-top: 15px;
+  outline: none;
+  background-color: white;
+  border: 1px rgba(201, 201, 201, 0.3) solid;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  border: 1px rgb(165, 165, 165) solid;
+  transition: 0.3s ease;
+}

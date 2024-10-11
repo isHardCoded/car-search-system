@@ -6,6 +6,11 @@ import { useState } from "react";
 
 const List = () => {
   const [searchItem, setSearchItem] = useState("");
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => {
+    setShow((show) => !show);
+  };
 
   const handleInputChange = (event) => {
     setSearchItem(event.target.value);
@@ -18,23 +23,28 @@ const List = () => {
   return (
     <div className="wrapper">
       <Search searchItem={searchItem} handleInputChange={handleInputChange} />
-      <ul className="car-list">
-        {filteredCars.map((item) => (
-          <li key={item.Id}>
-            <Card
-              name={item.Name.toUpperCase()}
-              miles_per_gallon={item.Miles_per_Gallon}
-              cylinders={item.Cylinders}
-              displacement={item.Displacement}
-              horsepower={item.Horsepower}
-              weight_in_lbs={item.Weight_in_lbs}
-              acceleration={item.Acceleration}
-              year={item.Year}
-              origin={item.Origin}
-            />
-          </li>
-        ))}
-      </ul>
+      <button onClick={() => handleShow()}>
+        {show ? "Hide cars" : "Show cars"}
+      </button>
+      {show && (
+        <ul className="car-list">
+          {filteredCars.map((item) => (
+            <li key={item.Id}>
+              <Card
+                name={item.Name.toUpperCase()}
+                miles_per_gallon={item.Miles_per_Gallon}
+                cylinders={item.Cylinders}
+                displacement={item.Displacement}
+                horsepower={item.Horsepower}
+                weight_in_lbs={item.Weight_in_lbs}
+                acceleration={item.Acceleration}
+                year={item.Year}
+                origin={item.Origin}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
